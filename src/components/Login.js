@@ -17,13 +17,18 @@ export default function Login(props){
 
      function handleLogin() {
          axios
-          .post("http://localhost:5000/login", user, { withCredentials: true })
+          .post("http://localhost:5000/auth/login", user, { withCredentials: true })
           .then((res) => {
-            dispatch(loginUserfind(res.data));
-            //<Route to='/'/>
-            if(res.data){
-                props.history.push('/homeuser')
+            console.log(res.status)
+            console.log(res)
+            if(res.status === 203){
+                alert(res.data)
+           } 
+           if(res.status === 200){
+                props.history.push('/homeuser');
+                dispatch(loginUserfind(res.data));
            }
+           
           });
     
         setUser({ email: "", password: "" });

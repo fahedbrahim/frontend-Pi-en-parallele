@@ -1,12 +1,25 @@
 import "../styles/Navbar.css";
 import logo from "../assets/logo1-removebg-preview.png";
 import { useDispatch, useSelector } from "react-redux";
-import { selectConnectuser } from "../redux/slices/userSlice";
+import { loginUserfind,selectConnectuser } from "../redux/slices/userSlice";
 import {Link} from "react-router-dom"
+import axios from "axios";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const dispatch = useDispatch();
   const [connectUser, error] = useSelector(selectConnectuser);
+
+  function handleLogout() {
+    axios
+     .get("http://localhost:5000/auth/logout", { withCredentials: true })
+     .then((res) => {
+           //props.history.push('/');
+           console.log(res)
+           dispatch(loginUserfind(res.data));
+           
+      } 
+     );
+ }
 
   return (
     <nav className="navbar sticky-top navbar-light navbar-expand-md" id="mainnav">
@@ -32,15 +45,15 @@ export default function Navbar() {
             <strong>Home</strong>
           </Link>
 
-          <Link className="nav-item nav-link" href="#">
+          <Link className="nav-item nav-link" to="#">
             <strong>Services</strong>
           </Link>
 
-          <Link className="nav-item nav-link" href="#">
+          <Link className="nav-item nav-link" to="#">
             <strong>About</strong>
           </Link>
 
-          <Link className="nav-item nav-link" href="#">
+          <Link className="nav-item nav-link" to="#">
             <strong>Contact</strong>
           </Link>
 
@@ -66,13 +79,13 @@ export default function Navbar() {
             <></>
           )}
           {connectUser.role === "user" || connectUser.role === "admin" ? (
-            <a className="nav-link" href="#" id="logout">
+            <Link className="nav-link" to="/" id="logout">
               <u>
                 <i>
-                  <strong>Logout</strong>
+                  <strong onClick={handleLogout}>Logout</strong>
                 </i>
               </u>
-            </a>
+            </Link>
           ) : (
             <></>
           )}
