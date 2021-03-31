@@ -1,0 +1,44 @@
+@media (min-width: 992px) {
+  #mainnav {
+    padding-left: 70px;
+    padding-right: 70px;
+    
+  }
+}
+
+nav{
+  /*background-color: #bfe2fd;*/
+  /*background-color: #B0CBDE;*/
+  /*background-color: #3D90DA;*/
+  background-color: #3DCCDA;
+  /*background-color: #04ccbc;*/
+}
+
+.nav-item {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.navbar-brand{
+  font-size: 23px;
+}
+
+#contact {
+  padding-right: 30px;
+}
+
+#login {
+  color: #ff8b3d;
+}
+
+#signup {
+  color: #ff8b3d;
+}
+#logout{
+  color: #ff8b3d;
+}
+
+#logo {
+  width: 100px;
+  height: 100px;
+  margin-right: 25px;
+}
