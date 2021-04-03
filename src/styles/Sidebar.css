@@ -13,7 +13,8 @@
     position: fixed;
     width: 60px;
     height: 100%;
-    background: #bfe2fd;
+    /*background: #bfe2fd;*/
+    background: #11cdef;
     transition: 0.5s;
     overflow: hidden;
 }

@@ -1,8 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
 import axios from 'axios'
 
+/*const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : {role : "visiteur"};*/
+
 let initialState = {
-  user: {role : "visiteur"},
+  user:localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : {role : "visiteur"} ,
   selectedUserlog: {},
   errors: "",
 };

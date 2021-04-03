@@ -8,6 +8,10 @@ import axios from "axios";
 export default function Navbar(props) {
   const dispatch = useDispatch();
   const [connectUser, error] = useSelector(selectConnectuser);
+  //const userLogin = useSelector((state) => state.userLogin);
+  //console.log(userLogin)
+  //const { connectuser } = userLogin;
+  //const connectUser = localStorage.getItem("userInfo")
 
   function handleLogout() {
     axios
@@ -15,6 +19,7 @@ export default function Navbar(props) {
      .then((res) => {
            //props.history.push('/');
            console.log(res)
+           localStorage.removeItem("userInfo");
            dispatch(loginUserfind(res.data));
            
       } 
@@ -78,7 +83,14 @@ export default function Navbar(props) {
           ) : (
             <></>
           )}
-          {connectUser.role === "user" || connectUser.role === "admin" ? (
+          {connectUser.role !== "visiteur"  ? (<>
+            <Link className="nav-link" to="/homeuser" id="Workspace">
+              <u>
+                <i>
+                  <strong >Workspace</strong>
+                </i>
+              </u>
+            </Link>
             <Link className="nav-link" to="/" id="logout">
               <u>
                 <i>
@@ -86,6 +98,7 @@ export default function Navbar(props) {
                 </i>
               </u>
             </Link>
+            </>
           ) : (
             <></>
           )}

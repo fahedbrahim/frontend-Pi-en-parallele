@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
 import cart from "./slices/cartSlice";
-import users from "./slices/usersSlice";
+import users from "./slices/admin/usersSlice";
 import user from "./slices/userSlice"
 
 const reducers = combineReducers({

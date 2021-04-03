@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,lazy } from "react";
 import axios from "axios";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { fetchUsers, selectUsers } from "./redux/slices/usersSlice";
+import { fetchUsers, selectUsers } from "./redux/slices/admin/usersSlice";
+
 import {
   loginUserfind,
   logoutUserfind,
@@ -15,6 +16,8 @@ import Home from "./components/Home";
 import HomeUser from "./components/HomeUser";
 import Register from "./components/Register"
 
+
+
 function App() {
   const dispatch = useDispatch();
   const [users, err] = useSelector(selectUsers);
@@ -27,6 +30,8 @@ function App() {
   /*useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);*/
+
+
 
   async function handleLogin() {
     await axios

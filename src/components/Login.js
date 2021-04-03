@@ -15,7 +15,7 @@ export default function Login(props){
     const [connectUser, error] = useSelector(selectConnectuser);
     const [user, setUser] = useState({ email: "", password: "" });
 
-     function handleLogin() {
+     const handleLogin = async()=> {
          axios
           .post("http://localhost:5000/auth/login", user, { withCredentials: true })
           .then((res) => {
@@ -25,8 +25,11 @@ export default function Login(props){
                 alert(res.data)
            } 
            if(res.status === 200){
-                props.history.push('/homeuser');
+                
+                localStorage.setItem("userInfo", JSON.stringify(res.data))
                 dispatch(loginUserfind(res.data));
+                props.history.push('/homeuser');
+                console.log(connectUser)
            }
            
           });

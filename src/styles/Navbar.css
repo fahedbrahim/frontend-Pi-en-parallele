@@ -10,8 +10,9 @@ nav{
   /*background-color: #bfe2fd;*/
   /*background-color: #B0CBDE;*/
   /*background-color: #3D90DA;*/
-  background-color: #3DCCDA;
+  /*background-color: #3DCCDA;*/
   /*background-color: #04ccbc;*/
+  background-color: #11cdef;
 }
 
 .nav-item {
@@ -34,6 +35,9 @@ nav{
   color: #ff8b3d;
 }
 #logout{
+  color: #ff8b3d;
+}
+#Workspace{
   color: #ff8b3d;
 }
 
