@@ -97,7 +97,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/homeuser/admin/users">
                   <span className="icon">
-                    <i className="fa fa-user"></i>
+                    <i className="fa fa-users"></i>
                   </span>
                   <span className="title">Users</span>
                 </Link>
@@ -105,7 +105,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/homeuser/admin/company">
                   <span className="icon">
-                    <i className="fa fa-archive"></i>
+                    <i className="fa fa-building"></i>
                   </span>
                   <span className="title">Company</span>
                 </Link>
@@ -113,7 +113,7 @@ export default function Sidebar() {
               <li>
                 <Link to="/homeuser/admin/delivery">
                   <span className="icon">
-                    <i className="fa fa-user"></i>
+                    <i className="fa fa-archive"></i>
                   </span>
                   <span className="title">Delivery</span>
                 </Link>

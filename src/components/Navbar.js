@@ -58,7 +58,7 @@ export default function Navbar(props) {
             <strong>About</strong>
           </Link>
 
-          <Link className="nav-item nav-link" to="#">
+          <Link className="nav-item nav-link" to="/contact">
             <strong>Contact</strong>
           </Link>
 

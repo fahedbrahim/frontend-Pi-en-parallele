@@ -25,40 +25,47 @@ export default function HomeUser(props) {
   const dispatch = useDispatch();
   
 
-  useEffect( ()=>{
+  useEffect( async()=>{
       if(Cookies.get('connect.sid') ){
         
       }else{
-        axios
+        await axios
        .get("http://localhost:5000/auth/logout", { withCredentials: true })
        .then((res) => {
-             
              console.log(res)
              localStorage.removeItem("userInfo");
              dispatch(loginUserfind(res.data));
              props.history.push('/');
         } ) }
     
-    if(connectUser.role === "admin"){
-       dispatch(fetchUsers());
+  },[Cookies.get()])
+
+  useEffect(()=>{
+    if(Cookies.get('connect.sid') ){
+      if(connectUser.role === "admin"){
+        dispatch(fetchUsers());
+     }
     }
-  },[dispatch, Cookies.get()])
+  
+    
+    
+  },[dispatch])
   
   return (
     <>
       <BrowserRouter>
         <div className="row" id="homeuser">
-          <div className="col-2" style={{padding : 0}}>
+          <div className="col-2 " style={{padding : 0}}>
             <Sidebar />
           </div>
           {connectUser.role ==="user" ? (
-          <div className="col-10">
+          <div className="col-9 " id="heigthHompage">
             <Switch>
               <Route path="/homeuser" exact component={Test} />
             </Switch>
           </div>):(<></>)}
           {connectUser.role ==="admin" ? (
-          <div className="col-10">
+          <div className="col-9 " id="heigthHompage">
             <Switch>
               <Route path="/homeuser" exact component={DashboardAdmin} />
               <Route path="/homeuser/admin/profile" component={ProfileAdmin} />
@@ -69,7 +76,7 @@ export default function HomeUser(props) {
             </Switch>
           </div>):(<></>)}
           {connectUser.role ==="company" ? (
-          <div className="col-10">
+          <div className="col-9 " id="heigthHompage">
             <Switch>
               <Route path="/homeuser" exact component={HomeCompany} />
               <Route path="/homuser/company/profile" component={ProfileCompany} />

@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Contact from './components/Contact'
 import Login from "./components/Login";
 import Home from "./components/Home";
 import HomeUser from "./components/HomeUser";
@@ -77,9 +78,11 @@ function App() {
       <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register}/>
           <Route path="/homeuser" component={HomeUser} />
+          <Route path="/**" component={Home} />
         </Switch>
       </BrowserRouter>
       <Footer />

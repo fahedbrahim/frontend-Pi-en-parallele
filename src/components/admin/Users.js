@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "../../styles/admin/Users.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectUsers } from "../../redux/slices/admin/usersSlice";
@@ -12,8 +13,9 @@ export default function Users() {
   return (
     <section>
       <div className="row">
-        <div className="col-sm-1 col-md-2"></div>
-        <div className="col-sm-10 col-md-8">
+        
+        <div className="col-sm-8 col-md-11 " id="tableUsers">
+          <div className=" table-responsive-sm">
           <table className="table">
             <thead>
               <tr>
@@ -47,8 +49,9 @@ export default function Users() {
                 ))}
             </tbody>
           </table>
+          </div>
         </div>
-        <div className="col-sm-1 col-md-2"></div>
+        
       </div>
     </section>
   );
