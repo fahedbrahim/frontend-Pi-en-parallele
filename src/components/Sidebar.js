@@ -1,5 +1,5 @@
 import "../styles/Sidebar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { selectConnectuser } from "../redux/slices/userSlice";
 import { useSelector } from "react-redux";
 
@@ -13,60 +13,44 @@ export default function Sidebar() {
           <div className="navigation">
             <ul>
               <li>
-                <Link to="/homeuser">
+                <NavLink exact to="/homeuser">
                   <span className="icon">
                     <i className="fa fa-home"></i>
                   </span>
                   <span className="title">Home</span>
-                </Link>
+                </NavLink >
               </li>
               <li>
-                <a href="#">
+                <NavLink to="/homeuser/user/profile">
                   <span className="icon">
                     <i className="fa fa-user"></i>
                   </span>
                   <span className="title">Profile</span>
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#">
+                <NavLink to="/homeuser/user/company">
                   <span className="icon">
-                    <i className="fa fa-comment"></i>
+                    <i className="fa fa-building"></i>
                   </span>
-                  <span className="title">Messages</span>
-                </a>
+                  <span className="title">Company</span>
+                </NavLink>
               </li>
               <li>
-                <a href="#">
+                <NavLink to="/homeuser/user/delivery">
                   <span className="icon">
-                    <i className="fa fa-question"></i>
+                    <i className="fa fa-archive"></i>
                   </span>
-                  <span className="title">Help</span>
-                </a>
+                  <span className="title">Delivery</span>
+                </NavLink>
               </li>
               <li>
-                <a href="#">
+                <NavLink to="/homeuser/user/vehicleshot">
                   <span className="icon">
-                    <i className="fa fa-cog"></i>
+                    <i className="fa fa-map-marker"></i>
                   </span>
-                  <span className="title">Setting</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon">
-                    <i className="fa fa-lock"></i>
-                  </span>
-                  <span className="title">Password</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <span className="icon">
-                    <i className="fa fa-sign-out"></i>
-                  </span>
-                  <span className="title">sign out</span>
-                </a>
+                  <span className="title">Vehicle Shot</span>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -79,44 +63,44 @@ export default function Sidebar() {
           <div className="navigation">
             <ul>
               <li>
-                <Link to="/homeuser">
+                <NavLink exact to="/homeuser">
                   <span className="icon">
                     <i className="fa fa-home"></i>
                   </span>
                   <span className="title">Dashboard</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homeuser/admin/profile">
+                <NavLink to="/homeuser/admin/profile">
                   <span className="icon">
                     <i className="fa fa-user"></i>
                   </span>
                   <span className="title">Profile</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homeuser/admin/users">
+                <NavLink to="/homeuser/admin/users">
                   <span className="icon">
                     <i className="fa fa-users"></i>
                   </span>
                   <span className="title">Users</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homeuser/admin/company">
+                <NavLink to="/homeuser/admin/company">
                   <span className="icon">
                     <i className="fa fa-building"></i>
                   </span>
                   <span className="title">Company</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homeuser/admin/delivery">
+                <NavLink to="/homeuser/admin/delivery">
                   <span className="icon">
                     <i className="fa fa-archive"></i>
                   </span>
                   <span className="title">Delivery</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -129,44 +113,44 @@ export default function Sidebar() {
           <div className="navigation">
             <ul>
               <li>
-                <Link to="/homeuser">
+                <NavLink exact to="/homeuser">
                   <span className="icon">
                     <i className="fa fa-home"></i>
                   </span>
                   <span className="title">Home</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homuser/company/profile">
+                <NavLink to="/homuser/company/profile">
                   <span className="icon">
                     <i className="fa fa-user"></i>
                   </span>
                   <span className="title">Profile</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homuser/company/deliveryman">
+                <NavLink to="/homuser/company/deliveryman">
                   <span className="icon">
                     <i className="fa fa-users"></i>
                   </span>
                   <span className="title">Delivery_Man</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homuser/company/vehicle">
+                <NavLink to="/homuser/company/vehicle">
                   <span className="icon">
                     <i className="fa fa-truck"></i>
                   </span>
                   <span className="title">Vehicle</span>
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/homuser/company/delivery">
+                <NavLink to="/homuser/company/delivery">
                   <span className="icon">
                     <i className="fa fa-archive"></i>
                   </span>
                   <span className="title">Delivery</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

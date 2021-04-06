@@ -19,6 +19,14 @@ import ProfileCompany from './company/Profile'
 import DeliveryManCompany from './company/DeliveryMan'
 import VehicleCompany from './company/Vehicle'
 import DeliveryCompany from './company/Delivery'
+import HomeForUser from './user/Home'
+import CompanyUser from './user/Company'
+import ProfileUser from './user/Profile'
+import DeliveryUser from './user/Delivery'
+import ListDeliveryUser from './user/ListDelivery'
+import MakeDeliveryUser from './user/MakeDelivery'
+import StateDeliveryUser from './user/StateDelivery'
+import VehicleShotUser from './user/VehicleShot'
 
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
@@ -61,7 +69,14 @@ export default function HomeUser(props) {
           {connectUser.role ==="user" ? (
           <div className="col-9 " id="heigthHompage">
             <Switch>
-              <Route path="/homeuser" exact component={Test} />
+              <Route path="/homeuser" exact component={HomeForUser} />
+              <Route path="/homeuser/user/profile"  component={ProfileUser} />
+              <Route path="/homeuser/user/company"  component={CompanyUser} />
+              <Route path="/homeuser/user/delivery"  component={DeliveryUser} />
+              <Route path="/homeuser/user/listdeliveryuser"  component={ListDeliveryUser} />
+              <Route path="/homeuser/user/makedeliveryuser"  component={MakeDeliveryUser} />
+              <Route path="/homeuser/user/statedeliveryuser"  component={StateDeliveryUser} />
+              <Route path="/homeuser/user/vehicleshot"  component={VehicleShotUser} />
             </Switch>
           </div>):(<></>)}
           {connectUser.role ==="admin" ? (

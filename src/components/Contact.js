@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import axios from "axios";
 import "../styles/Contact.css";
+import positionEsprit from "../assets/espritposition.jpg";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Leaft from "./espritposition/leaft";
 
@@ -52,11 +53,12 @@ export default function Contact(props) {
   const mapRef = useRef()
   return (
       <>
-    <section className="Form my-4 mx-5" id="seclogin">
+    <section className="Form my-4 mx-5" id="seccontact">
       <div className="container">
-        <div className="row no-gutters" id="rowlogin">
+        <div className="row no-gutters" id="rowcontact">
           <div className="col-lg-5">
-            <Map center={[36.8978418,10.1876042]} zoom={9} ref={mapRef}>
+          <img src={positionEsprit} className="img-fluid" alt="contactimg" id="imgpositionEsprit"/>
+            {/* <Map center={[36.8978418,10.1876042]} zoom={9} ref={mapRef} style={{width:"200px", height:"400px"}}>
               <TileLayer
                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"         
@@ -64,11 +66,11 @@ export default function Contact(props) {
               <Marker position={[36.8978418,10.1876042]}>
                 <Popup>Smart Delivery</Popup>
               </Marker>
-            </Map>
+            </Map> */}
           </div>
           <div className="col-lg-7 px-5 py-5">
             <h1 className="font-weight-bold py-3">WeCode</h1>
-            <h4>Sign into your account</h4>
+            <h4>Contact Form</h4>
             <form>
               <div className="form-row">
                 <div className="col-lg-7">
@@ -111,10 +113,10 @@ export default function Contact(props) {
                   <button
                     type="button"
                     className="btn1"
-                    id="btnlogin"
+                    id="btncontact"
                     onClick={handleContact}
                   >
-                    Login
+                    Send
                   </button>
                 </div>
               </div>

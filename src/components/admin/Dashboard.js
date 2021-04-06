@@ -1,11 +1,32 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie';
+import {useDispatch ,useSelector } from "react-redux";
+import {loginUserfind, selectConnectuser, } from "../../redux/slices/userSlice";
 import ChartLine from './chart/LineChart'
 import ChartBar from './chart/BarChart'
 import ChartDoughnut from './chart/DoughnutCart'
 import ChartPolarArea from './chart/PolarAreaChart'
 import "../../styles/admin/Dashboard.css";
 
-export default function Dashboard (){
+export default function Dashboard (props){
+
+    const [connectUser, error] = useSelector(selectConnectuser);
+    const dispatch = useDispatch();
+    useEffect( async()=>{
+        if(Cookies.get('connect.sid') ){
+          
+        }else{
+          await axios
+         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .then((res) => {
+               console.log(res)
+               localStorage.removeItem("userInfo");
+               dispatch(loginUserfind(res.data));
+               props.history.push('/');
+          } ) }
+      
+    },[Cookies.get()])
     
 
     return (

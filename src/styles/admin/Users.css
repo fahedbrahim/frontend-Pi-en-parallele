@@ -22,3 +22,31 @@ table{
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
+.paginationBttns{
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #A9A9A9;
+    color: #A9A9A9;
+    cursor: pointer;
+}
+
+.paginationBttns a:hover{
+    color: white;
+    background-color: #A9A9A9;
+}
+
+.paginationActive a{
+    color: white;
+    background-color: #A9A9A9;
+}
+

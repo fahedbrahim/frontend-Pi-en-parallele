@@ -4,7 +4,9 @@ import Cookies from 'js-cookie';
 import {useDispatch ,useSelector } from "react-redux";
 import {loginUserfind, selectConnectuser, } from "../../redux/slices/userSlice";
 
-export default function Vehicle (props){
+
+
+export default function Home (props){
 
     const [connectUser, error] = useSelector(selectConnectuser);
     const dispatch = useDispatch();
@@ -25,6 +27,9 @@ export default function Vehicle (props){
     },[Cookies.get()])
 
     return (
-        <h1>i'm Vehicle</h1>
+        <div style={{height:"700px"}}>
+        <h1>Home</h1>
+        </div>
     )
 }
+

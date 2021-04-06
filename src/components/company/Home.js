@@ -1,3 +1,9 @@
+import {useEffect} from 'react'
+import axios from 'axios'
+import Cookies from 'js-cookie';
+import {useDispatch ,useSelector } from "react-redux";
+import {loginUserfind, selectConnectuser, } from "../../redux/slices/userSlice";
+
 import { Carousel} from 'react-bootstrap';
 import track from '../../assets/track.jpeg';
 import delivery from '../../assets/deliveryman.jpeg';
@@ -5,7 +11,26 @@ import delivery1 from '../../assets/delivery1.jpeg';
 import employe from '../../assets/employe.jpeg';
 import team from '../../assets/team.jpeg';
 
-export default function Home (){
+export default function Home (props){
+
+  const [connectUser, error] = useSelector(selectConnectuser);
+    const dispatch = useDispatch();
+
+    useEffect( async()=>{
+        if(Cookies.get('connect.sid') ){
+          
+        }else{
+          await axios
+         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .then((res) => {
+               console.log(res)
+               localStorage.removeItem("userInfo");
+               dispatch(loginUserfind(res.data));
+               props.history.push('/');
+          } ) }
+      
+    },[Cookies.get()])
+
     return (
         <>
         <h1 className='text-center' style={{marginTop : '30px', marginBottom: '30px'}} >Wellcome To Your Workspace</h1>
