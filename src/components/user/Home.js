@@ -26,6 +26,8 @@ export default function Home (props){
       
     },[Cookies.get()])
 
+
+
     return (
         <div style={{height:"700px"}}>
         <h1>Home</h1>

@@ -36,7 +36,7 @@ export default function Register() {
           </div>
           <div className="col-lg-7 px-5 py-5">
             <h1 className="font-weight-bold py-3">WeCode</h1>
-            <h4>Sign into your account</h4>
+            <h4>Let's get you on board</h4>
             <form>
               <div className="form-row">
                 <div className="col-lg-7">
@@ -90,7 +90,7 @@ export default function Register() {
               <div className="form-row">
                 <div className="col-lg-7">
                   <select className="custom-select custom-select-lg my-3" name="role" value={user.role} onChange={handleChange}>
-                    <option >Selectionné votre profil</option>
+                    <option >Select your profile</option>
                     <option value="user">User</option>
                     <option value="company">Company</option>
                   </select>

@@ -39,12 +39,14 @@ export default function Home() {
               />
               <div className="carousel-caption d-none d-md-block">
                 <h3>
-                  Le logiciel d’optimisation de tournées qui s’adapte à votre
-                  activité
+                  {/* Le logiciel d’optimisation de tournées qui s’adapte à votre
+                  activité */}
+                  The route optimization software that adapts to your business
                 </h3>
                 <p>
-                  Aucune installation. Paramétrage simple. Environnement 100%
-                  sécurisé.
+                  {/* Aucune installation. Paramétrage simple. Environnement 100%
+                  sécurisé. */}
+                  No installation. Easy to set up. 100% secure environment.
                 </p>
               </div>
             </div>
@@ -55,7 +57,10 @@ export default function Home() {
                 alt="secondcarousel"
               />
               <div className="carousel-caption d-none d-md-block">
-                <h3>Moins d’effort, plus de productivité.</h3>
+                <h3>
+                   {/* Moins d’effort, plus de productivité.  */}
+                   Less effort, more productivity.
+                   </h3>
                 <br />
               </div>
             </div>
@@ -66,7 +71,10 @@ export default function Home() {
                 alt="thirdcarousel"
               />
               <div className="carousel-caption d-none d-md-block">
-                <h3>Gagner de l'argent pendant votre temps libre</h3>
+                <h3>
+                  {/* Gagner de l'argent pendant votre temps libre */}
+                  Earn money in your free time
+                  </h3>
                 <br />
               </div>
             </div>
@@ -102,25 +110,25 @@ export default function Home() {
 
     <section>
         <h4 className="text-center" data-aos="fade-down" data-aos-delay="100" id="h4homepage">Smart Delivery</h4>
-        <h3 className="text-center" data-aos="fade-up" data-aos-delay="100"><strong>Meilleures solutions créative</strong></h3>
+        <h3 className="text-center" data-aos="fade-up" data-aos-delay="100"><strong> {/*Meilleures solutions créative*/} Best creative solutions</strong></h3>
     </section>
     <section>
         <div className="row"  id="rowhomepage">
             <div className="col-sm-12 col-md-3 divcercle" data-aos="fade-right" data-aos-delay="300" >
                 <div id="icondiv"><i className="fa fa-gears" id="cercle1"></i></div>
-                <p className="text-center paracercle" >Solutions créative</p>
+                <p className="text-center paracercle" >{/*Solutions créative*/}Creative solutions</p>
             </div>
             <div className="col-sm-12 col-md-3 divcercle" data-aos="fade-right" data-aos-delay="500" >
                 <div id="icondiv"><i className="fa fa-leaf" id="cercle2"></i></div>
-                <p className="text-center paracercle" >Solutions créative</p>
+                <p className="text-center paracercle" >{/*Solutions créative*/}Creative solutions</p>
             </div>
             <div className="col-sm-12 col-md-3 divcercle" data-aos="fade-right" data-aos-delay="700" >
                 <div id="icondiv"><i className="fa fa-heart" id="cercle3"></i></div>
-                <p className="text-center paracercle" >Solutions créative</p>
+                <p className="text-center paracercle" >{/*Solutions créative*/}Creative solutions</p>
             </div>
             <div className="col-sm-12 col-md-3 divcercle" data-aos="fade-right" data-aos-delay="900" >
                 <div id="icondiv"><i className="fa fa-laptop" id="cercle4"></i></div>
-                <p className="text-center paracercle" >Solutions créative</p>
+                <p className="text-center paracercle" >{/*Solutions créative*/}Creative solutions</p>
             </div>
         </div>
     </section>

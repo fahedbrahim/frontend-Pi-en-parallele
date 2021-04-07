@@ -28,7 +28,7 @@ export default function VehicleShot (props){
 
     return (
         <div style={{height:"700px"}}>
-        <h1>Vehicle Shot</h1>
+        <h1>I'm vehicle Tour</h1>
         </div>
     )
 }
