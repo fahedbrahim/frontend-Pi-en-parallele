@@ -23,15 +23,19 @@ export default function Register() {
   }
 
   return (
-    <section className="Form my-4 mx-5" id="secregister">
+    <section className="Form my-4 mx-5" style={{padding: 0,
+                                                margin: 0,
+                                                boxSizing : "border-box"}}>
       <div className="container">
-        <div className="row no-gutters" id="rowregister">
+        <div className="row no-gutters" style={{backgroundColor : "#ced1d3",
+                                                borderRadius : "30px",
+                                                boxShadow : "12px 12px 22px grey"}}>
           <div className="col-lg-5">
             <img
               src={login}
               className="img-fluid"
               alt="logimg"
-              id="imgregister"
+              style={{borderTopLeftRadius : "30px", borderBottomLeftRadius : "30px"}}
             />
           </div>
           <div className="col-lg-7 px-5 py-5">

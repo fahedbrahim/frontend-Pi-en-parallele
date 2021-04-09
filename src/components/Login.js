@@ -2,13 +2,14 @@ import { useState} from "react";
 import "../styles/Login.css";
 import login from "../assets/login.jpg";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 import {
     loginUserfind,
     logoutUserfind,
     selectConnectuser,
   } from "../redux/slices/userSlice";
   import { useDispatch, useSelector } from "react-redux";
+
 
 export default function Login(props){
     const dispatch = useDispatch();
@@ -43,11 +44,17 @@ export default function Login(props){
         console.log(user);
       };
     return(
-        <section className="Form my-4 mx-5" id="seclogin">
+        <section className="Form my-4 mx-5" style={{padding: 0,
+                                                    margin: 0,
+                                                    boxSizing : "border-box"}}>
             <div className="container">
-                <div className="row no-gutters" id="rowlogin">
+                <div className="row no-gutters" style={{backgroundColor : "#ced1d3",
+                                                         borderRadius : "30px",
+                                                        boxShadow : "12px 12px 22px grey"}} >
                     <div className="col-lg-5">
-                        <img src={login} className="img-fluid" alt="logimg" id="imglogin"/>
+                        <img src={login} className="img-fluid" alt="logimg" 
+                        style={{borderTopLeftRadius : "30px", borderBottomLeftRadius : "30px"}}
+                        />
                     </div>
                     <div className="col-lg-7 px-5 py-5">
                         <h1 className="font-weight-bold py-3">WeCode</h1>
@@ -69,6 +76,13 @@ export default function Login(props){
                                 </div>
                             </div>
                         </form>
+                        <div className="form-row" style={{marginTop:"20px"}}>
+                                <div className="col-lg-7">
+                                    <Link to="/resetpassword">
+                                        <i style={{color:"black"}}>Forgot password ?</i>
+                                    </Link>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

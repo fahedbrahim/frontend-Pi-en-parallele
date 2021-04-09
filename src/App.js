@@ -15,7 +15,9 @@ import Contact from './components/Contact'
 import Login from "./components/Login";
 import Home from "./components/Home";
 import HomeUser from "./components/HomeUser";
-import Register from "./components/Register"
+import Register from "./components/Register";
+import ResetPassword from "./components/ResetPassword";
+import NewPassword from "./components/NewPassword";
 
 
 
@@ -81,6 +83,8 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register}/>
+          <Route path="/resetpassword" component={ResetPassword}/>
+          <Route path="/newpassword/:token" component={NewPassword}/>
           <Route path="/homeuser" component={HomeUser} />
           <Route path="/**" component={Home} />
         </Switch>
