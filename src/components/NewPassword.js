@@ -39,7 +39,7 @@ export default function ResetPassword(props){
                                                          borderRadius : "30px",
                                                         boxShadow : "12px 12px 22px grey"}} >
                     <div className="px-5 py-5">
-                        <h2 className="font-weight-bold py-3">Please enter your e-mail address</h2>
+                        <h2 className="font-weight-bold py-3">Please enter your new password</h2>
                         <form>
                             <div className="form-row" style={{display : "flex", justifyContent : "center"}}>
                                 <div className="col-lg-7" >

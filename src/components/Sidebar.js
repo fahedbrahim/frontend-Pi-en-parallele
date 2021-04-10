@@ -121,7 +121,7 @@ export default function Sidebar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/homuser/company/profile">
+                <NavLink to="/homeuser/company/profile">
                   <span className="icon">
                     <i className="fa fa-user"></i>
                   </span>
@@ -129,7 +129,7 @@ export default function Sidebar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/homuser/company/deliveryman">
+                <NavLink to="/homeuser/company/deliveryman">
                   <span className="icon">
                     <i className="fa fa-users"></i>
                   </span>
@@ -137,7 +137,7 @@ export default function Sidebar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/homuser/company/vehicle">
+                <NavLink to="/homeuser/company/vehicle">
                   <span className="icon">
                     <i className="fa fa-truck"></i>
                   </span>
@@ -145,7 +145,7 @@ export default function Sidebar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/homuser/company/delivery">
+                <NavLink to="/homeuser/company/delivery">
                   <span className="icon">
                     <i className="fa fa-archive"></i>
                   </span>

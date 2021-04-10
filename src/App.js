@@ -86,7 +86,7 @@ function App() {
           <Route path="/resetpassword" component={ResetPassword}/>
           <Route path="/newpassword/:token" component={NewPassword}/>
           <Route path="/homeuser" component={HomeUser} />
-          <Route path="/**" component={Home} />
+          <Route  component={Home} />
         </Switch>
       </BrowserRouter>
       <Footer />

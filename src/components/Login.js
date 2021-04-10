@@ -20,17 +20,13 @@ export default function Login(props){
          axios
           .post("http://localhost:5000/auth/login", user, { withCredentials: true })
           .then((res) => {
-            console.log(res.status)
-            console.log(res)
             if(res.status === 203){
                 alert(res.data)
            } 
            if(res.status === 200){
-                
                 localStorage.setItem("userInfo", JSON.stringify(res.data))
                 dispatch(loginUserfind(res.data));
                 props.history.push('/homeuser');
-                console.log(connectUser)
            }
            
           });
@@ -40,8 +36,6 @@ export default function Login(props){
 
       const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
-        //setPassword(e.target.value.password)
-        console.log(user);
       };
     return(
         <section className="Form my-4 mx-5" style={{padding: 0,

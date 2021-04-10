@@ -26,7 +26,7 @@ export default function Contact(props) {
           alert(res.data);
         }
         if (res.status === 200) {
-          props.history.push("/homeuser");
+          props.history.push("/");
         }
       });
 

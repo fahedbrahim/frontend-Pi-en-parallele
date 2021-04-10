@@ -88,16 +88,17 @@ export default function HomeUser(props) {
               <Route path="/homeuser/admin/company" component={CompanyAdmin} />
               <Route path="/homeuser/admin/delivery" component={DeliveryAdmin} />
               <Route path="/homeuser/admin/userscircuit" component={UserscircuitAdmin}/>
+              <Route component={DashboardAdmin} />
             </Switch>
           </div>):(<></>)}
           {connectUser.role ==="company" ? (
           <div className="col-9 " id="heigthHompage">
             <Switch>
               <Route path="/homeuser" exact component={HomeCompany} />
-              <Route path="/homuser/company/profile" component={ProfileCompany} />
-              <Route path="/homuser/company/deliveryman" component={DeliveryManCompany} />
-              <Route path="/homuser/company/vehicle" component={VehicleCompany} />
-              <Route path="/homuser/company/delivery" component={DeliveryCompany} />
+              <Route path="/homeuser/company/profile" component={ProfileCompany} />
+              <Route path="/homeuser/company/deliveryman" component={DeliveryManCompany} />
+              <Route path="/homeuser/company/vehicle" component={VehicleCompany} />
+              <Route path="/homeuser/company/delivery" component={DeliveryCompany} />
             </Switch>
           </div>):(<></>)}
         </div>
