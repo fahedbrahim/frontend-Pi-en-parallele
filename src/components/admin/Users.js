@@ -7,9 +7,30 @@ import "../../styles/admin/Users.css";
 import { Link } from "react-router-dom";
 import { selectUsers } from "../../redux/slices/admin/usersSlice";
 import ReactPaginate from 'react-paginate'
+import {FetchWeather} from './weather/FetchWeather'
 
 
 export default function Users(props) {
+  
+  var weatherLocate = localStorage.getItem("weatherInfo") ? localStorage.getItem("weatherInfo") : localStorage.setItem("weatherInfo", "Tunis")
+  const [query, setQuery]=useState('')
+  const [weather, setWeather]=useState({})
+
+  const search = async(e)=>{
+    if(e.key == "Enter"){
+    const data = await FetchWeather(query)
+    setWeather(data)
+    setQuery('')
+    localStorage.setItem("weatherInfo", query)
+    console.log(data.name)}
+  } 
+
+  useEffect(async()=>{
+    const data = await FetchWeather(weatherLocate)
+    setWeather(data)
+    console.log(data.weather[0].description)
+  },[FetchWeather])
+  
   
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
@@ -68,6 +89,25 @@ const changePage = ({selected})=>{
 }
 
   return (
+    <>
+    <div className="row col-lg-4 my-3 px-3" style={{background:"rgba(250, 250, 250, 0.85)", boxShadow:"5px 5px 15px rgba(0, 0, 0, 0.5)"}}>
+      
+    <input type="text" className="form-control my-3 col-3 " placeholder="Country..." value={query} onChange={(e)=>setQuery(e.target.value)} onKeyPress={search} />&ensp;
+    {weather.main && (
+    
+      <div className="my-3 " style={{fontSize:"25px", display:"flex", flexWrap:"nowrap"}}>
+        <strong>
+          {weather.name} </strong><span style={{fontSize:"10px"}}>{weather.sys.country}</span>&ensp;
+          <strong>
+          {Math.round(weather.main.temp)}
+          <sup>&deg;C</sup>
+        </strong>
+        <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt={weather.weather[0].description} style={{height:"50px", width:"50px"}} />
+      </div>
+    
+    )}
+    
+    </div>
     <section style={{height:"1100px"}}>
       <div className="row" >
         
@@ -109,5 +149,6 @@ const changePage = ({selected})=>{
         
       </div>
     </section>
+    </>
   );
 }

@@ -48,15 +48,14 @@ export default function HomeUser(props) {
     
   },[Cookies.get()])
 
+  
+
   useEffect(()=>{
     if(Cookies.get('connect.sid') ){
       if(connectUser.role === "admin"){
         dispatch(fetchUsers());
      }
     }
-  
-    
-    
   },[dispatch])
   
   return (

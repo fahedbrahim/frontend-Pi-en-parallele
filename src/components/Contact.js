@@ -2,8 +2,27 @@ import { useState, useRef } from "react";
 import axios from "axios";
 import "../styles/Contact.css";
 import positionEsprit from "../assets/espritposition.jpg";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import Leaft from "./espritposition/leaft";
+// import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+// import Leaft from "./espritposition/leaft";
+
+import {GoogleMap, withScriptjs, withGoogleMap, Marker} from "react-google-maps"
+import { ZoomControl } from "react-leaflet";
+
+function Map(){
+  return(
+    <GoogleMap 
+      defaultZoom={10} 
+      defaultCenter={{lat:36.8978418 , lng:10.1876042}}
+      options={{
+        ZoomControl : true
+      }}
+    >
+      <Marker position={{lat:36.8978418 , lng:10.1876042}} />
+    </GoogleMap>
+  );
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function Contact(props) {
     const [position , setPosition] = useState({lat : 36.8978418 , lng : 10.1876042});
@@ -57,7 +76,14 @@ export default function Contact(props) {
       <div className="container">
         <div className="row no-gutters" id="rowcontact">
           <div className="col-lg-5">
-          <img src={positionEsprit} className="img-fluid" alt="contactimg" id="imgpositionEsprit"/>
+            <div style={{width:"90%", height:"535px", margin:"23px", boxShadow : "12px 12px 22px grey"}}>
+            <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`}
+                        loadingElement={<div style={{height: "100%"}}/>}
+                        containerElement={<div style={{height: "100%"}}/>}
+                        mapElement={<div style={{height: "100%"}}/>}
+            />
+            </div>
+          {/* <img src={positionEsprit} className="img-fluid" alt="contactimg" id="imgpositionEsprit"/> */}
             {/* <Map center={[36.8978418,10.1876042]} zoom={9} ref={mapRef} style={{width:"200px", height:"400px"}}>
               <TileLayer
                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
