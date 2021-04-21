@@ -27,6 +27,7 @@ export default function Company (props){
     return (
         <div style={{height:"700px"}}>
         <h1>i'm Company</h1>
+        <button onClick={console.log('hello')}>click</button>
         </div>
     )
 }

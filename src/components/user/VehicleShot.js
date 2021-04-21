@@ -119,6 +119,8 @@ export default function VehicleShot (props){
     //setNumberPoints([...numberPoints,intermidiaire.length])
     const aff = await setAfficher(true)
   }
+
+  
     return (
         <div style={{height:"700px",width:"100%" , marginBottom:"50px" , marginTop:"50px"}}>
          <h1>I'm vehicle Tour</h1> 
@@ -140,7 +142,6 @@ export default function VehicleShot (props){
         ))}
       </ul>
       <button onClick={affchange}>charger</button>
-     
         </div>
     )
 }

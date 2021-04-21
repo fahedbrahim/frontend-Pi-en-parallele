@@ -5,9 +5,10 @@ import {useDispatch ,useSelector } from "react-redux";
 import {loginUserfind, selectConnectuser } from "../../redux/slices/userSlice";
 import "../../styles/admin/Users.css";
 import { Link } from "react-router-dom";
-import { selectUsers } from "../../redux/slices/admin/usersSlice";
+import { selectUsers, fetchUsers, deleteUser, selectUser } from "../../redux/slices/admin/usersSlice";
 import ReactPaginate from 'react-paginate'
 import {FetchWeather} from './weather/FetchWeather'
+
 
 
 export default function Users(props) {
@@ -15,6 +16,7 @@ export default function Users(props) {
   var weatherLocate = localStorage.getItem("weatherInfo") ? localStorage.getItem("weatherInfo") : localStorage.setItem("weatherInfo", "Tunis")
   const [query, setQuery]=useState('')
   const [weather, setWeather]=useState({})
+  const [searchTerm, setSearchTerm]=useState('')
 
   const search = async(e)=>{
     if(e.key == "Enter"){
@@ -22,13 +24,12 @@ export default function Users(props) {
     setWeather(data)
     setQuery('')
     localStorage.setItem("weatherInfo", query)
-    console.log(data.name)}
+    }
   } 
 
   useEffect(async()=>{
     const data = await FetchWeather(weatherLocate)
     setWeather(data)
-    console.log(data.weather[0].description)
   },[FetchWeather])
   
   
@@ -45,7 +46,7 @@ export default function Users(props) {
       await axios
      .get("http://localhost:5000/auth/logout", { withCredentials: true })
      .then((res) => {
-           console.log(res)
+           
            localStorage.removeItem("userInfo");
            dispatch(loginUserfind(res.data));
            props.history.push('/');
@@ -53,12 +54,47 @@ export default function Users(props) {
   
 },[Cookies.get()])
 
+useEffect(()=>{
+  if(Cookies.get('connect.sid') ){
+    if(connectUser.role === "admin"){
+      dispatch(fetchUsers());
+   }
+  }
+},[dispatch])
+const handledelete = (id)=>{
+  axios.delete(`http://localhost:5000/users/${id}`,{ withCredentials: true }).then((res,err)=>{
+    if(err){
+    alert (err)
+  }else{
+    dispatch(deleteUser(id))
+  }})
+  
+}
+
+const handleupdate= (user)=>{
+  dispatch(selectUser(user))
+  props.history.push(`/homeuser/admin/updateuser/${user._id}`)
+}
+
   const usersPerPage = 10;
   const pagesVisited = pageNumber * usersPerPage;
 
-  const displayUsers = users.slice(pagesVisited, pagesVisited + usersPerPage).map((user, index)=>
+  const displayUsers = users.filter((user)=>{
+    if(searchTerm === ""){
+      return user}else if(user.username.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                          user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          user.adresse.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          user.phone.toLowerCase().includes(searchTerm.toLowerCase())
+                          ){
+                            return user
+      }
+  }).filter((user)=>{
+    if (user.role === 'user'){
+      return user
+    }
+  }).slice(pagesVisited, pagesVisited + usersPerPage).map((user, index)=>
   (
-    <tr key={user._id}>
+    <tr key={index}>
       <th scope="row">{index}</th>
       <td>{user.username}</td>
       <td>{user.email}</td>
@@ -66,12 +102,14 @@ export default function Users(props) {
       <td>{user.phone}</td>
       <td>
         <span className="icon mr-3">
-          <Link to={`/homeuser/admin/update/${user._id}`}>
+        <button style={{border:'none', background:'none'}} onClick={()=>handleupdate(user)}>
           <i className="fa fa-pencil" style={{color : "green"}}></i>
-          </Link>
+          </button>
         </span>
-        <span className="icon">
-          <i className="fa fa-trash" style={{color : "red"}}></i>
+        <span className="icon" >
+        <button style={{border:'none', background:'none'}} onClick={()=>handledelete(user._id)}>
+          <i className="fa fa-trash" style={{color : "red"}} ></i>
+          </button>
         </span>
       </td>
     </tr>
@@ -82,11 +120,12 @@ const usersArray = []
 users.map(user =>(usersArray.push(user)))
   
 const pageCount = Math.ceil(usersArray.length / usersPerPage);
-console.log(pageCount)
+
 
 const changePage = ({selected})=>{
   setPageNumber(selected)
 }
+
 
   return (
     <>
@@ -108,6 +147,7 @@ const changePage = ({selected})=>{
     )}
     
     </div>
+    <input className="form-control col-3" type="search" placeholder="Search..." name="searchTerm" onChange={(e)=>{setSearchTerm(e.target.value)}}/>
     <section style={{height:"1100px"}}>
       <div className="row" >
         
@@ -125,7 +165,7 @@ const changePage = ({selected})=>{
               </tr>
             </thead>
             <tbody>
-                {displayUsers}
+            {displayUsers}
                 
             </tbody>
             

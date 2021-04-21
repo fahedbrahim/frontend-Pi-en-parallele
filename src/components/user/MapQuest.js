@@ -42,7 +42,7 @@ function MapQuest (props) {
             leaflet.mapquest.directions().route({
                 start: 'tunis',
                 end: 'tozeur',
-                waypoints: [  'sousse', 'monastir','moknine'],
+                waypoints: [  {lat: 35.82903, lng: 10.63778}, 'monastir','moknine','tozeur'],
                 optimizeWaypoints: true
               });
     

@@ -12,8 +12,11 @@ import DashboardAdmin from "./admin/Dashboard"
 import ProfileAdmin from "./admin/Profile"
 import UsersAdmin from "./admin/Users"
 import CompanyAdmin from "./admin/Company"
+import CompanyWaitingAdmin from "./admin/CompanyWaiting"
 import DeliveryAdmin from "./admin/Delivery"
 import UserscircuitAdmin from "./admin/Userscircuit"
+import UpdateUserAdmin from "./admin/UpdateUser"
+import UpdateCompanyAdmin from "./admin/UpdateCompany"
 import HomeCompany from './company/Home'
 import ProfileCompany from './company/Profile'
 import DeliveryManCompany from './company/DeliveryMan'
@@ -86,8 +89,11 @@ export default function HomeUser(props) {
               <Route path="/homeuser" exact component={DashboardAdmin} />
               <Route path="/homeuser/admin/profile" component={ProfileAdmin} />
               <Route path="/homeuser/admin/users" component={UsersAdmin} />
+              <Route path="/homeuser/admin/companywaiting" component={CompanyWaitingAdmin} />
               <Route path="/homeuser/admin/company" component={CompanyAdmin} />
               <Route path="/homeuser/admin/delivery" component={DeliveryAdmin} />
+              <Route path="/homeuser/admin/updateuser/:id" component={UpdateUserAdmin}/>
+              <Route path="/homeuser/admin/updatecompany/:id" component={UpdateCompanyAdmin}/>
               <Route path="/homeuser/admin/userscircuit" component={UserscircuitAdmin}/>
               <Route component={DashboardAdmin} />
             </Switch>
