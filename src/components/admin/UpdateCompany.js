@@ -53,7 +53,7 @@ export default function UpdateCompany (props){
         <>
             <div className="row my-5"  style={{display:'flex', justifyContent:'center'}}>
                 <div className="col-7" style={{display:'flex', justifyContent:'center', boxShadow : "12px 12px 22px grey",borderRadius:"15px"}}>
-                    <h3>Update User</h3>
+                    <h3>Update Company</h3>
                 </div>
             </div>
             <div className="row" style={{display:'flex', justifyContent:'center'}}>

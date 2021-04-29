@@ -39,13 +39,25 @@ function MapQuest (props) {
                 'Dark': leaflet.mapquest.tileLayer('dark')
             }).addTo(mapInstance);
 
+            console.log(props.departure)
+            console.log(props.dests)
+            const endpoint = props.dests
             leaflet.mapquest.directions().route({
-                start: 'tunis',
-                end: 'tozeur',
-                waypoints: [  {lat: 35.82903, lng: 10.63778}, 'monastir','moknine','tozeur'],
-                optimizeWaypoints: true
+                start: props.departure,
+                end: endpoint[props.dests.length-1] ,
+                waypoints: props.dests,
+                optimizeWaypoints: true,
               });
-    
+
+              console.log(props.dests.length)
+            // leaflet.mapquest.directions().route({
+            //     start: 'tunis',
+            //     end: 'tozeur',
+            //     waypoints: [  'sousse', 'monastir','moknine','tozeur'],
+            //     optimizeWaypoints: true,
+            //   });
+
+              //{lat: 35.82903, lng: 10.63778} , key = 2NmKbEIILnTEItWHHYldG7iA0TLPkG6g
             // // center: [40.7128, -74.0059],
             // leaflet.mapquest.directions().route({
             //   start: 'Boulder, CO',

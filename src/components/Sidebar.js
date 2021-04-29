@@ -45,11 +45,11 @@ export default function Sidebar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/homeuser/user/vehicleshot">
+                <NavLink to="/homeuser/user/vehicletour">
                   <span className="icon">
                     <i className="fa fa-map-marker"></i>
                   </span>
-                  <span className="title">Vehicle Shot</span>
+                  <span className="title">Vehicle Tour</span>
                 </NavLink>
               </li>
             </ul>

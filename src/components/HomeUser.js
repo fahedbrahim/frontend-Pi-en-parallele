@@ -29,8 +29,10 @@ import DeliveryUser from './user/Delivery'
 import ListDeliveryUser from './user/ListDelivery'
 import MakeDeliveryUser from './user/MakeDelivery'
 import StateDeliveryUser from './user/StateDelivery'
-import VehicleShotUser from './user/VehicleShot'
+import VehicleTourUser from './user/VehicleTour'
 import circuitUser from './user/Circuit'
+import addcircuitUser from './user/AddCircuit'
+import updatecircuitUser from './user/UpdateCircuit'
 
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
@@ -79,8 +81,10 @@ export default function HomeUser(props) {
               <Route path="/homeuser/user/listdeliveryuser"  component={ListDeliveryUser} />
               <Route path="/homeuser/user/makedeliveryuser"  component={MakeDeliveryUser} />
               <Route path="/homeuser/user/statedeliveryuser"  component={StateDeliveryUser} />
-              <Route path="/homeuser/user/vehicleshot"  component={VehicleShotUser} />
-              <Route path="/homeuser/user/circuit"  component={circuitUser} />
+              <Route path="/homeuser/user/vehicletour"  component={VehicleTourUser} />
+              <Route path="/homeuser/user/circuit/:id"  component={circuitUser} />
+              <Route path="/homeuser/user/addcircuit"  component={addcircuitUser} />
+              <Route path="/homeuser/user/updatecircuit/:id"  component={updatecircuitUser} />
             </Switch>
           </div>):(<></>)}
           {connectUser.role ==="admin" ? (
