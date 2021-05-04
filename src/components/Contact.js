@@ -1,39 +1,44 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import "../styles/Contact.css";
-import positionEsprit from "../assets/espritposition.jpg";
-// import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-// import Leaft from "./espritposition/leaft";
+//import "../styles/Contact.css";
+import styled from 'styled-components'
 
-// import {GoogleMap, withScriptjs, withGoogleMap, Marker} from "react-google-maps"
-// import { ZoomControl } from "react-leaflet";
 
-// function Map(){
-//   return(
-//     <GoogleMap 
-//       defaultZoom={10} 
-//       defaultCenter={{lat:36.8978418 , lng:10.1876042}}
-//       options={{
-//         ZoomControl : true
-//       }}
-//     >
-//       <Marker position={{lat:36.8978418 , lng:10.1876042}} />
-//     </GoogleMap>
-//   );
-// }
-
-// const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function Contact(props) {
-    const [position , setPosition] = useState({lat : 36.8978418 , lng : 10.1876042});
-    const [isMapInit, setIsMapInit] = useState(false);
-  const [map, setMap] = useState("");
+  
   const [contact, setContact] = useState({
     email: "wecodeesprit@gmail.com",
     emailsend: "",
     subject: "",
     message: "",
   });
+
+  useEffect(()=>{
+    const leaflet = window.L;
+    
+    leaflet.mapquest.key = 'UwYfiIYH4iLLIAGTJVTgZOuOd7Ndn61H';
+    const baseLayer = leaflet.mapquest.tileLayer('map');
+
+    const mapInstance = leaflet.mapquest.map('map', {
+      center: [36.8978418,10.1876042],
+      layers: baseLayer,
+      zoom: 14,
+  });
+
+  
+  leaflet.mapquest.textMarker([36.8992004,10.1875098], {
+    text: 'Esprit',
+    subtext: "ecole d'ingénieurs",
+    position: 'right',
+    type: 'marker',
+    icon: {
+      primaryColor: '#333333',
+      secondaryColor: '#333333',
+      size: 'sm'
+    }
+  }).addTo(leaflet.mapquest.Map.getMap('map'));
+},[])
 
   const handleContact = async () => {
     axios
@@ -58,41 +63,26 @@ export default function Contact(props) {
   };
 
   const handleChange = (e) => {
-    //setUser({ ...user, [e.target.name]: e.target.value });
+    
     setContact({ ...contact, [e.target.name]: e.target.value });
-    //setPassword(e.target.value.password)
+    
     console.log(contact);
   };
 
-  // const saveMap = (map) => {
-  //   setMap(map);
-  //   setIsMapInit(true);
-  // };
-
-  // const mapRef = useRef()
+  
   return (
       <>
-    <section className="Form my-4 mx-5" id="seccontact">
+    <section className="Form my-4 mx-5" style={{padding: 0, margin: 0, boxSizing: "border-box"}}>
       <div className="container">
-        <div className="row no-gutters" id="rowcontact">
+        <div className="row no-gutters" style={{backgroundColor: "#ced1d3", borderRadius: "30px", boxShadow: "12px 12px 22px grey"}}>
           <div className="col-lg-5">
             <div style={{width:"90%", height:"535px", margin:"23px", boxShadow : "12px 12px 22px grey"}}>
-            {/* <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places`}
-                        loadingElement={<div style={{height: "100%"}}/>}
-                        containerElement={<div style={{height: "100%"}}/>}
-                        mapElement={<div style={{height: "100%"}}/>}
-            /> */}
+            
+            <div id="map" style={{height:'100%',width:'100%'}}>
+                <p style={{ textAlign: 'center' }}>Map loading...</p>
             </div>
-          {/* <img src={positionEsprit} className="img-fluid" alt="contactimg" id="imgpositionEsprit"/> */}
-            {/* <Map center={[36.8978418,10.1876042]} zoom={9} ref={mapRef} style={{width:"200px", height:"400px"}}>
-              <TileLayer
-               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"         
-              />
-              <Marker position={[36.8978418,10.1876042]}>
-                <Popup>Smart Delivery</Popup>
-              </Marker>
-            </Map> */}
+            </div>
+          
           </div>
           <div className="col-lg-7 px-5 py-5">
             <h1 className="font-weight-bold py-3">WeCode</h1>
@@ -136,14 +126,16 @@ export default function Contact(props) {
               </div>
               <div className="form-row">
                 <div className="col-lg-7">
-                  <button
+                  
+                  <Btncss
                     type="button"
                     className="btn1"
                     id="btncontact"
                     onClick={handleContact}
                   >
                     Send
-                  </button>
+                  </Btncss>
+                  
                 </div>
               </div>
             </form>
@@ -154,3 +146,19 @@ export default function Contact(props) {
     </>
   );
 }
+
+const Btncss = styled.button`
+border:none;
+outline: none;
+height: 50px;
+width: 100%;
+background-color: black;
+color: white;
+border-radius: 10px;
+font-weight: bold;
+&:hover{
+    background: white;
+    border: 1px solid;
+    color: black;
+}
+`;

@@ -1,14 +1,29 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 
 
 export default function LineChart(){
 
+    const [statcurrent, setStatcurrent]= useState('');
+    const [statbefore, setStatbefore]=useState('');
+
+    useEffect(()=>{
+        axios.get('http://localhost:5000/users/stat',{ withCredentials: true }).then(res=>{
+            setStatcurrent(res.data.statcurrent)
+            setStatbefore(res.data.statbefore)
+
+        })
+    },[])
+    
     const data = {
         labels:[ 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
         datasets : [{
-            label : 'Users join For 2021',
-            data : [50, 100, 75, 150, 200, 120, 180, 70, 90, 200, 250, 150],
+            label : `Users join For ${new Date().getFullYear()}`,
+            data : [statcurrent.Jan, statcurrent.Fev, statcurrent.Mars,
+                    statcurrent.Avril, statcurrent.Mai, statcurrent.Juin,
+                    statcurrent.Juillet, statcurrent.Aout, statcurrent.Septembre,
+                    statcurrent.Octobre, statcurrent.Novembre, statcurrent.Decembre],
             borderColor : [
                 'rgba(153, 102, 255, 1)',
                 'rgba(153, 102, 255, 1)',
@@ -67,8 +82,11 @@ export default function LineChart(){
             ]
         },
         {
-            label : 'Users join For 2020',
-            data : [200, 150, 170, 120, 100, 70, 150, 200, 250, 150, 170, 250],
+            label : `Users join For ${new Date().getFullYear()-1}`,
+            data : [statbefore.Jan, statbefore.Fev, statbefore.Mars,
+                    statbefore.Avril, statbefore.Mai, statbefore.Juin,
+                    statbefore.Juillet, statbefore.Aout, statbefore.Septembre,
+                    statbefore.Octobre, statbefore.Novembre, statbefore.Decembre],
             borderColor : [
                 'rgba(255, 99, 132, 1)',
                 'rgba(255, 99, 132, 1)',

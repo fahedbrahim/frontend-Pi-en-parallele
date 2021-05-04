@@ -152,7 +152,7 @@ const changePage = ({selected})=>{
     <section style={{height:"1100px"}}>
       <div className="row" >
         
-        <div className="col-sm-8 col-md-11 " id="tableUsers">
+        <div className="col-sm-8 col-md-11 " style={{border: "1px solid #eeeeee",boxShadow: "12px 12px 22px grey",marginTop: "20px",marginBottom: "50px"}}>
           <div className=" table-responsive-sm">
           <table className="table">
             <thead>

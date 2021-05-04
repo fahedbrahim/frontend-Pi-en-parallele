@@ -52,6 +52,9 @@ export default function VehicleTour (props){
   const pagesVisited = pageNumber * itemsPerPage;
 
   const displayCircuits = items.filter((item)=>{
+    const dd = new Date(item.date)
+    console.log(dd.getDate()+"/"+(dd.getMonth()+1)+"/"+dd.getFullYear())
+    
     if(searchTerm === ""){
       return item}else if(item.name.toLowerCase().includes(searchTerm.toLowerCase())
                           ){
@@ -63,6 +66,7 @@ export default function VehicleTour (props){
       <th scope="row">{index}</th>
       <td>{item.name}</td>
       <td>{item.departure}</td>
+      <td>{new Date(item.date).getDate()+"/"+(new Date(item.date).getMonth()+1)+"/"+new Date(item.date).getFullYear()}</td>
       <td style={{display:'flex', justifyContent:'center'}}>
         <span className="icon mr-3" >
         <button style={{border:'none', background:'none'}} onClick={()=>handleShow(item)}>
@@ -105,6 +109,7 @@ const changePage = ({selected})=>{
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Start</th>
+                <th scope="col">Creation Date</th>
                 <th scope="col" style={{display:'flex', justifyContent:'center'}}>Action</th>
               </tr>
             </thead>

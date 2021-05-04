@@ -17,7 +17,7 @@ export default function Register(props) {
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-    //setPassword(e.target.value.password)
+    
     console.log(user);
   };
 
@@ -39,7 +39,6 @@ export default function Register(props) {
 }
 
 const responseGoogle=(res)=>{
-    console.log(res.profileObj.familyName)
     setUser({ ...user, username: res.profileObj.familyName+" "+res.profileObj.givenName, email: res.profileObj.email  })
 }
 

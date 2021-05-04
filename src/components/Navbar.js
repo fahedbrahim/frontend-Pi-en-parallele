@@ -8,11 +8,7 @@ import axios from "axios";
 export default function Navbar(props) {
   const dispatch = useDispatch();
   const [connectUser, error] = useSelector(selectConnectuser);
-  //const userLogin = useSelector((state) => state.userLogin);
-  //console.log(userLogin)
-  //const { connectuser } = userLogin;
-  //const connectUser = localStorage.getItem("userInfo")
-
+  
   function handleLogout() {
     axios
      .get("http://localhost:5000/auth/logout", { withCredentials: true })

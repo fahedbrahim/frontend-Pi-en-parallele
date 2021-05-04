@@ -17,6 +17,7 @@ import DeliveryAdmin from "./admin/Delivery"
 import UserscircuitAdmin from "./admin/Userscircuit"
 import UpdateUserAdmin from "./admin/UpdateUser"
 import UpdateCompanyAdmin from "./admin/UpdateCompany"
+import ChangePasswordAdmin from './admin/ChangePassword'
 import HomeCompany from './company/Home'
 import ProfileCompany from './company/Profile'
 import DeliveryManCompany from './company/DeliveryMan'
@@ -99,6 +100,7 @@ export default function HomeUser(props) {
               <Route path="/homeuser/admin/updateuser/:id" component={UpdateUserAdmin}/>
               <Route path="/homeuser/admin/updatecompany/:id" component={UpdateCompanyAdmin}/>
               <Route path="/homeuser/admin/userscircuit" component={UserscircuitAdmin}/>
+              <Route path="/homeuser/admin/changepassword" component={ChangePasswordAdmin}/>
               <Route component={DashboardAdmin} />
             </Switch>
           </div>):(<></>)}
