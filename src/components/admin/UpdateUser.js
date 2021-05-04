@@ -34,9 +34,11 @@ export default function UpdateUser (props){
 
     const handleupdate = ()=>{
          axios.put(`http://localhost:5000/users/${slectedUser._id}`,user,{ withCredentials: true }).then((res,err)=>{
-            if (err){
-                alert(err)
-            }else{
+            if(res.status === 203){
+                alert(res.data)
+                setUser({ username: slectedUser.username, email: slectedUser.email, adresse: slectedUser.adresse, phone: slectedUser.phone })
+           } 
+           if(res.status === 200){
                 props.history.push("/homeuser/admin/users")
                 dispatch(updateUser(res))
                 dispatch(unselectUser())
