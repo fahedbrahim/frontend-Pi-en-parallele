@@ -7,9 +7,9 @@
 
 # Let's Start now
 
-## git clone https://github.com/fahedbrahim/frontend-Pi-en-parallele.git
-## npm install
+### git clone https://github.com/fahedbrahim/frontend-Pi-en-parallele.git
+### npm install
 
-# Now you must add all the keys with your new keys
+## Now you must add all the keys with your new keys
 
-## npm start
+### npm start
