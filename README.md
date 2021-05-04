@@ -1,5 +1,5 @@
 # Welcome,
-## To Start first of all you must have somme accounts and key in :
+## To Start first of all you must have somme accounts and keys in :
 * [Mapquest](https://developer.mapquest.com/)
 * [Here](https://developer.here.com/)
 * [Google](https://console.cloud.google.com/)
@@ -10,6 +10,6 @@
 ### git clone https://github.com/fahedbrahim/frontend-Pi-en-parallele.git
 ### npm install
 
-## Now you must add all the keys with your new keys
+## Now you must change all the keys with your new keys
 
 ### npm start
