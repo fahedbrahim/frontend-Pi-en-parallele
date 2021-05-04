@@ -117,7 +117,11 @@ const handleupdate= (user)=>{
   )
   
 const usersArray = []
-users.map(user =>(usersArray.push(user)))
+users.filter((user)=>{
+  if (user.role === 'company'){
+    return user
+  }
+}).map(user =>(usersArray.push(user)))
   
 const pageCount = Math.ceil(usersArray.length / usersPerPage);
 
