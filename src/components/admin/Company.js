@@ -44,7 +44,7 @@ export default function Company(props) {
       
     }else{
       await axios
-     .get("http://localhost:5000/auth/logout", { withCredentials: true })
+     .get("/auth/logout", { withCredentials: true })
      .then((res) => {
            
            localStorage.removeItem("userInfo");
@@ -62,7 +62,7 @@ useEffect(()=>{
   }
 },[dispatch])
 const handledelete = (id)=>{
-  axios.delete(`http://localhost:5000/users/${id}`,{ withCredentials: true }).then((res,err)=>{
+  axios.delete(`/users/${id}`,{ withCredentials: true }).then((res,err)=>{
     if(err){
     alert (err)
   }else{
@@ -138,7 +138,7 @@ const changePage = ({selected})=>{
     <input type="text" className="form-control my-3 col-3 " placeholder="Country..." value={query} onChange={(e)=>setQuery(e.target.value)} onKeyPress={search} />&ensp;
     {weather.main && (
     
-      <div className="my-3 " style={{fontSize:"25px", display:"flex", flexWrap:"nowrap"}}>
+      <div className="my-3 " style={{fontSize:"20px", display:"flex", flexWrap:"nowrap"}}>
         <strong>
           {weather.name} </strong><span style={{fontSize:"10px"}}>{weather.sys.country}</span>&ensp;
           <strong>

@@ -11,7 +11,7 @@ export default function Navbar(props) {
   
   function handleLogout() {
     axios
-     .get("http://localhost:5000/auth/logout", { withCredentials: true })
+     .get("/auth/logout", { withCredentials: true })
      .then((res) => {
            //props.history.push('/');
            console.log(res)
@@ -27,7 +27,7 @@ export default function Navbar(props) {
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img id="logo" src={logo} alt="smart delivery" ></img>
-          <strong style={{fontSize : 30}}>Smart delivery</strong>
+          <strong style={{fontSize : 25}}>Smart delivery</strong>
         </a>
         <button
           className="navbar-toggler"

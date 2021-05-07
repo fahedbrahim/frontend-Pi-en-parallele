@@ -26,7 +26,7 @@ export default function AddCircuit (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -74,7 +74,7 @@ export default function AddCircuit (props){
       } 
     //console.log(route)
 
-    const intermidiaire = await axios.post('http://localhost:5000/geo',route,{ withCredentials: true })
+    const intermidiaire = await axios.post('/geo',route,{ withCredentials: true })
     console.log(intermidiaire)
     props.history.push('/homeuser/user/vehicletour')
   }

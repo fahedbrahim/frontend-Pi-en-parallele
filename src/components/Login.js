@@ -18,7 +18,7 @@ export default function Login(props){
 
      const handleLogin = async()=> {
          axios
-          .post("http://localhost:5000/auth/login", user, { withCredentials: true })
+          .post("/auth/login", user, { withCredentials: true })
           .then((res) => {
             if(res.status === 203){
                 alert(res.data)

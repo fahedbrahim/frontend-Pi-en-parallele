@@ -15,7 +15,7 @@ export default function ChangePassword (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -30,7 +30,7 @@ export default function ChangePassword (props){
       };
 
       const handleupdate = ()=>{
-        axios.put(`http://localhost:5000/users/updatepassword/${connectUser.id}`,password,{ withCredentials: true }).then((res,err)=>{
+        axios.put(`/users/updatepassword/${connectUser.id}`,password,{ withCredentials: true }).then((res,err)=>{
             if(res.status === 203){
                 alert(res.data)
                 

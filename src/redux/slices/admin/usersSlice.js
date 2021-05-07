@@ -45,7 +45,7 @@ const usersSlice = createSlice({
 })
 
 export const fetchUsers = () => async (dispatch) => {
-    axios.get('http://localhost:5000/users',{withCredentials : true}).then((res,err)=>{
+    axios.get('/users',{withCredentials : true}).then((res,err)=>{
        /* if(err){
             dispatch(setErrors(err));
         }else {

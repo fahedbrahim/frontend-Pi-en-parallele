@@ -7,7 +7,7 @@ export default function ResetPassword(props){
 
      const handleResetPassword = async()=> {
          axios
-          .post("http://localhost:5000/auth/reset-password", user, { withCredentials: true })
+          .post("/auth/reset-password", user, { withCredentials: true })
           .then((res) => {
             if(res.status === 203){
                 alert(res.data)   

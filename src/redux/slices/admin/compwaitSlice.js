@@ -45,7 +45,7 @@ const companiesSlice = createSlice({
 })
 
 export const fetchCompanies = () => async (dispatch) => {
-    axios.get('http://localhost:5000/compwait',{withCredentials : true}).then((res,err)=>{
+    axios.get('/compwait',{withCredentials : true}).then((res,err)=>{
        /* if(err){
             dispatch(setErrors(err));
         }else {

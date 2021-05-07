@@ -44,7 +44,7 @@ export default function CompanyWaiting (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -63,7 +63,7 @@ export default function CompanyWaiting (props){
       },[dispatch])
 
       const handledelete = (id)=>{
-        axios.delete(`http://localhost:5000/compwait/${id}`,{ withCredentials: true }).then((res,err)=>{
+        axios.delete(`/compwait/${id}`,{ withCredentials: true }).then((res,err)=>{
           if(err){
           alert (err)
         }else{
@@ -79,7 +79,7 @@ export default function CompanyWaiting (props){
                       adresse: company.adresse,
                       phone: company.phone,
                       role: company.role})
-        axios.post('http://localhost:5000/compwait/add', company, { withCredentials: true }).then((res,err)=>{
+        axios.post('/compwait/add', company, { withCredentials: true }).then((res,err)=>{
             if(err){
                 alert (err)
               }else{

@@ -26,7 +26,7 @@ export default function UpdateCircuit (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -38,7 +38,7 @@ export default function UpdateCircuit (props){
 
     useEffect(()=>{
        
-        axios.get(`http://localhost:5000/geo/${props.match.params.id}`,{ withCredentials: true }).then(res=>{
+        axios.get(`/geo/${props.match.params.id}`,{ withCredentials: true }).then(res=>{
             setPoints(res.data.waypoints)
             setItems(res.data.destinations)
             setStart(res.data.departure)
@@ -82,7 +82,7 @@ export default function UpdateCircuit (props){
       } 
     //console.log(route)
 
-    const intermidiaire = await axios.put(`http://localhost:5000/geo/${props.match.params.id}`,route,{ withCredentials: true })
+    const intermidiaire = await axios.put(`/geo/${props.match.params.id}`,route,{ withCredentials: true })
     console.log(intermidiaire)
     props.history.push('/homeuser/user/vehicletour')
   }

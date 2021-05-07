@@ -16,7 +16,7 @@ export default function UpdateUser (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -33,7 +33,7 @@ export default function UpdateUser (props){
     },[slectedUser])
 
     const handleupdate = ()=>{
-         axios.put(`http://localhost:5000/users/${slectedUser._id}`,user,{ withCredentials: true }).then((res,err)=>{
+         axios.put(`/users/${slectedUser._id}`,user,{ withCredentials: true }).then((res,err)=>{
             if(res.status === 203){
                 alert(res.data)
                 setUser({ username: slectedUser.username, email: slectedUser.email, adresse: slectedUser.adresse, phone: slectedUser.phone })

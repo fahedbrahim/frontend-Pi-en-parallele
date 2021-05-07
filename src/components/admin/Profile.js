@@ -16,7 +16,7 @@ export default function Profile (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -27,7 +27,7 @@ export default function Profile (props){
     },[Cookies.get()])
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/users/${connectUser.id}`,{ withCredentials: true }).then(res=>{
+        axios.get(`/users/${connectUser.id}`,{ withCredentials: true }).then(res=>{
             setProfile({username:res.data.username, email:res.data.email, adresse:res.data.adresse, phone :res.data.phone})
         })
     },[])
@@ -38,10 +38,10 @@ export default function Profile (props){
 
       const handleupdate = async()=>{
           const password = prompt("Your Password");
-          axios.put(`http://localhost:5000/users/profile/${connectUser.id}`,{password,profile},{ withCredentials: true }).then(res=>{
+          axios.put(`/users/profile/${connectUser.id}`,{password,profile},{ withCredentials: true }).then(res=>{
             if(res.status === 203){
                 alert(res.data)
-                axios.get(`http://localhost:5000/users/${connectUser.id}`,{ withCredentials: true }).then(res=>{
+                axios.get(`/users/${connectUser.id}`,{ withCredentials: true }).then(res=>{
                 setProfile({username:res.data.username, email:res.data.email, adresse:res.data.adresse, phone :res.data.phone})
         })
            } 

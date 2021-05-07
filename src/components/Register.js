@@ -22,7 +22,7 @@ export default function Register(props) {
   };
 
   function handleRegister() {
-    axios.post("http://localhost:5000/auth/register", user, { withCredentials: true })
+    axios.post("/auth/register", user, { withCredentials: true })
     .then((res) => {
       console.log(res.status)
       console.log(res)
@@ -39,6 +39,7 @@ export default function Register(props) {
 }
 
 const responseGoogle=(res)=>{
+  console.log(res)
     setUser({ ...user, username: res.profileObj.familyName+" "+res.profileObj.givenName, email: res.profileObj.email  })
 }
 

@@ -23,7 +23,7 @@ export default function VehicleTour (props){
           
         }else{
           await axios
-         .get("http://localhost:5000/auth/logout", { withCredentials: true })
+         .get("/auth/logout", { withCredentials: true })
          .then((res) => {
                console.log(res)
                localStorage.removeItem("userInfo");
@@ -34,7 +34,7 @@ export default function VehicleTour (props){
     },[Cookies.get(), dispatch])
 
     useEffect(async ()=>{
-      axios.get(`http://localhost:5000/geo/all/${connectUser.id}`,{ withCredentials: true }).then(res=>{
+      axios.get(`/geo/all/${connectUser.id}`,{ withCredentials: true }).then(res=>{
         
         setItems(res.data.reverse())
       })
@@ -95,8 +95,10 @@ const changePage = ({selected})=>{
 
     return (
       <>
-        
-    <input className="form-control col-3 mt-4" type="search" placeholder="Search..." name="searchTerm" onChange={(e)=>{setSearchTerm(e.target.value)}}/>
+        <div className="row">
+    <input className="form-control col-lg-3 mt-4" type="search" placeholder="Search..." name="searchTerm" onChange={(e)=>{setSearchTerm(e.target.value)}}/>
+    <div className="col-9"></div>
+    </div>
     <button type="button" className="btn btn-primary mt-2" onClick={()=>{props.history.push('/homeuser/user/addcircuit')}}>New Tour</button>
         <section style={{height:"1100px"}}>
         <div className="row" >

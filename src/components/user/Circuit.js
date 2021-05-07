@@ -24,7 +24,7 @@ const UpdateTime=()=>{
 setInterval(UpdateTime, 1000)
 
 useEffect(async ()=>{
-  const res = await axios.get(`http://localhost:5000/geo/${props.match.params.id}`,{ withCredentials: true })
+  const res = await axios.get(`/geo/${props.match.params.id}`,{ withCredentials: true })
     setStart(res.data.start)
     setDestinations(res.data.waypoints)
     setCharger(true)
@@ -49,12 +49,12 @@ const search = async(e)=>{
 } 
   return (
     <>
-    <div className="row col-lg-4 my-3 px-3" style={{background:"rgba(250, 250, 250, 0.85)", boxShadow:"5px 5px 15px rgba(0, 0, 0, 0.5)"}}>
+        <div className="row col-lg-4 my-3 px-3" style={{background:"rgba(250, 250, 250, 0.85)", boxShadow:"5px 5px 15px rgba(0, 0, 0, 0.5)"}}>
       
       <input type="text" className="form-control my-3 col-3 " placeholder="Country..." value={query} onChange={(e)=>setQuery(e.target.value)} onKeyPress={search} />&ensp;
       {weather.main && (
       
-        <div className="my-3 " style={{fontSize:"25px", display:"flex", flexWrap:"nowrap"}}>
+        <div className="my-3 " style={{fontSize:"20px", display:"flex", flexWrap:"nowrap"}}>
           <strong>
             {weather.name} </strong><span style={{fontSize:"10px"}}>{weather.sys.country}</span>&ensp;
             <strong>
@@ -77,7 +77,7 @@ const search = async(e)=>{
     <div className="App">
       <div className="App-header">  
       </div>
-      <div style={{marginTop: "30px", marginBottom:"30px", boxShadow : "12px 12px 22px grey", height:'600px'}}>
+      <div style={{marginTop: "30px", marginBottom:"150px", boxShadow : "12px 12px 22px grey", height:'600px'}}>
         {start !== '' && destinations.length !== 0 ?
       <MapQuest
         height={`${window.innerHeight * 0.89}px`}

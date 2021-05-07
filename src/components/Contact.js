@@ -42,7 +42,7 @@ export default function Contact(props) {
 
   const handleContact = async () => {
     axios
-      .post("http://localhost:5000/mail", contact, { withCredentials: true })
+      .post("/mail", contact, { withCredentials: true })
       .then((res) => {
         console.log(res.status);
         console.log(res);

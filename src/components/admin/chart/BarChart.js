@@ -9,7 +9,7 @@ export default function LineChart(){
     const [statbefore, setStatbefore]=useState('');
 
     useEffect(()=>{
-        axios.get('http://localhost:5000/users/stat',{ withCredentials: true }).then(res=>{
+        axios.get('/users/stat',{ withCredentials: true }).then(res=>{
             setStatcurrent(res.data.statcurrent)
             setStatbefore(res.data.statbefore)
 
